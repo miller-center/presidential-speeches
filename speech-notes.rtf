@@ -17,7 +17,7 @@ Only 4 have downloadable speeches: Those 4 have MOV files\
 \
 Need to add source to EE fields\
 \
-Make EE descr and transcr fields plain txt\
+\strike \strikec0 Make EE descr and transcr fields plain txt\strike0\striked0 \
 \
 \ul Plan for processing files: \
 \
@@ -27,14 +27,18 @@ Make EE descr and transcr fields plain txt\
 \
 \strike \strikec0 Add carrots to double tabs (empty fields)\ul \strike0\striked0 \
 \
+\ulnone \strike \strikec0 Double-check president spelling vs. EE\ul \strike0\striked0 \
+\
+\ulnone \strike \strikec0 Split into 1 files: pre-media and post-media? \strike0\striked0 (Upload non-media entries in bulk 1st?) \
+	Split into pre-video and post-video? \
+\ul \
+\
 \ulnone Remove endTime?\ul \
 \
 \ulnone Add field for \'93no downloads\'94, apply \'93yes\'94 to all JFK except 3 exceptions\
 \
 What to do with \'93hasMedia\'94 field? (very few zeroes)\
 \
-Split into pre-media and post-media? (Upload non-media entries in bulk 1st?) \
-	Split into pre-video and post-video? \
 \
 Create media file URLs using locator and list of filetypes\
 	- nearly all will have mp3\
@@ -43,4 +47,29 @@ Create media file URLs using locator and list of filetypes\
 find & replace source # (JFK Library, Miller Center, etc.)\
 \
 \
+when importing: use metadataID (confirm this isn\'92t eventID) to build URL segment (needs to start with letters, not #s\'85 figure this out.)\
+\
+\
+**need to deal with 1901 problem before importing\
+\
+Small bug in word cloud snippet: \'93quot\'94 is not removed presumably since there\'92s no space between it and a word. So you get \'93quoteich\'94 (in eich bin ein berliner) etc. Replaced with actual quotes (not quot) and had same problem. \
+\
+\'97\'97\'97\'97\'97\
+add htaccess rule (like gallery rule) to silently pass through\
+	/president/speeches/tyler to\
+	/president/tyler/speeches\
+	
+\b Maybe not: we don\'92t provide dedicated president page for speeches
+\b0 \
+	DO need htaccess rule to pass: \
+	/president/tyler/speeches/tyler-1111 to\
+	/president/speeches/tyler-1111\
+\
+find+replace URLs on new speech home page from old to new\
+\
+\
+\
+When there is no A/V: <p>This transcript contains the published text of the speech, not the actual words\
+			spoken. There may be some differences between the transcript and the audio/video\
+			content.</p>\
 }
