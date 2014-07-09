@@ -1,7 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf200
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;\red0\green68\blue254;}
-\margl1440\margr1440\vieww19720\viewh12500\viewkind0
+{\colortbl;\red255\green255\blue255;\red0\green68\blue254;\red0\green61\blue204;}
+\margl1440\margr1440\vieww9900\viewh12480\viewkind0
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 
 \f0\b\fs24 \cf0 Kennedy Speeches
@@ -154,24 +154,42 @@ Need to add source to EE fields\
 			^spe_\\1^	^noTypes^\
 \
 \
-\
-\
 
 \b ***need to remove 3-letter prefix from \'93http\'94s****\
+\
 **need to remove noLG, noMOV, etc.\
-	FIND: no(LG|SM|RM|MOV|WMV|FLV|MP3)\
+
+\b0 	FIND: no(LG|SM|RM|MOV|WMV|FLV|MP3)\
 	replace with nothing\
 \
-need to: make url\
+
+\b Make url
+\b0 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7225\tx7708\tx8312\tx8967\tx9768\tx10510\tx11204\tx11918\tx12538\tx13232\tx14028\tx14496\tx15164\tx15755\tx16285\tx16840\tx17411\tx18010\pardirnatural
 \cf2 	\\^([0-9]\{4\})\\^	\\^([0-9]\{4\})\\^	\\^([0-9\\-: ]+)\\^	\\^(Yes)*\\^	\\^(0|1)\\^	\\^([a-zA-Z\\. ]+) ([a-zA-Z\\.]+)\\^\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 \cf2 	^\\1^	^\\2^	^\\3^	^\\4^	^\\5^	^\\6 \\7^	^\\L\\7\\E-\\2^\
-translate source (manually done for test file)
+\
+
+\b translate source (manually done for test file)
 \b0 \cf0 \ul \ulc0 \
 \
 \
-\ulnone Add field for \'93no downloads\'94, apply \'93yes\'94 to all JFK except 3 exceptions\
+
+\b \cf3 \ulnone ***add labels as needed to top line***\
+\
+\
+RESULTS:\
+\
+	Will be some spacing issues since white space was saved in the db - how handle this?\
+	remove http://web2.millercenter.org from media URLS 
+\b0 \cf0 \
+\
+\
+\
+\strike \strikec0 Went through two csv files replacing empty <div> with <p> (and closing tags the same)\'97fixes some spacing issues. \strike0\striked0 \
+\
+Add field for \'93no downloads\'94, apply \'93yes\'94 to all JFK except 3 exceptions\
 \
 What to do with \'93hasMedia\'94 field? (very few zeroes)\
 \
@@ -206,12 +224,4 @@ add htaccess rule (like gallery rule) to silently pass through\
 find+replace URLs on new speech home page from old to new\
 \
 \
-\
-
-\b Template notes
-\b0 \
-\
-When there is no A/V: <p>This transcript contains the published text of the speech, not the actual words\
-			spoken. There may be some differences between the transcript and the audio/video\
-			content.</p>\
 }
