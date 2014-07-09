@@ -1,7 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf200
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-\margl1440\margr1440\vieww12240\viewh12580\viewkind0
+{\colortbl;\red255\green255\blue255;\red0\green68\blue254;}
+\margl1440\margr1440\vieww19720\viewh12500\viewkind0
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 
 \f0\b\fs24 \cf0 Kennedy Speeches
@@ -30,10 +30,146 @@ Need to add source to EE fields\
 \ulnone \strike \strikec0 Double-check president spelling vs. EE\ul \strike0\striked0 \
 \
 \ulnone \strike \strikec0 Split into 1 files: pre-media and post-media? \strike0\striked0 (Upload non-media entries in bulk 1st?) \
-	Split into pre-video and post-video? \
 \ul \
+
+\b \ulnone Removed endTime, changed start time to 12:00\
 \
-\ulnone Remove endTime?\ul \
+\cf2 made test batch\
+
+\b0 	**translate sources early, easier to get to\
+\
+	add restrictVideo column (Yes or blank)\
+	Mark empty media columns\
+		\\^spe_([0-9a-zA-Z_]+)\\^	\\^\\^	\\^\\^\
+		^spe_\\1^	^noTypes^	^noNames^
+\b \
+	\
+	look for audio, create new column, delete 8 from list\
+
+\b0 		\\^spe_([0-9a-zA-Z_]+)\\^	\\^8(,)*(\\^)*([0-9,]*)(\\^)*\
+		^spe_\\1^	^\\3\\4\\5	^MP3http://web2.millercenter.org/speeches/audio/spe_\\1.mp3^\
+
+\b 	add col for non-8 lines
+\b0 \
+			\\^noNames\\^	\\^([0-9]+)\\^\
+			^noMP3^	^noNames^	^\\1^	\
+
+\b 	check for empty mediaType cols
+\b0 \
+			\\^spe_([0-9a-zA-Z_]+)\\^	\\^\\^\
+			^spe_\\1^	^noTypes^
+\b \
+\
+	FLV\
+
+\b0 		\\^spe_([0-9a-zA-Z_]+)\\^	\\^84(,)*(\\^)*([0-9,]*)(\\^)*\
+		^spe_\\1^	^\\3\\4\\5	^FLVhttp://web2.millercenter.org/speeches/video/flv/spe_\\1.flv^\
+
+\b 	non-FLV add col
+\b0 \
+		\\^spe_([0-9a-zA-Z_]+)\\^	\\^(noTypes|[0-9,]+)\\^	\\^(noMP3|MP3http)\
+		^spe_\\1^	^\\2^	^noFLV^	^\\3\
+
+\b 	check for empty mediaType cols
+\b0 \
+			\\^spe_([0-9a-zA-Z_]+)\\^	\\^\\^\
+			^spe_\\1^	^noTypes^\
+	
+\b WMV\
+
+\b0 		\\^spe_([0-9a-zA-Z_]+)\\^	\\^85(,)*(\\^)*([0-9,]*)(\\^)*\
+		^spe_\\1^	^\\3\\4\\5	^WMVhttp://web2.millercenter.org/speeches/video/wmv/spe_\\1.wmv^\
+
+\b 	non-WMV add col
+\b0 \
+		\\^spe_([0-9a-zA-Z_]+)\\^	\\^(noTypes|[0-9,]+)\\^	\\^(noFLV|FLVhttp)\
+		^spe_\\1^	^\\2^	^noWMV^	^\\3\
+
+\b 	check for empty mediaType cols
+\b0 \
+			\\^spe_([0-9a-zA-Z_]+)\\^	\\^\\^\
+			^spe_\\1^	^noTypes^\
+\
+	
+\b MOV\
+
+\b0 		\\^spe_([0-9a-zA-Z_]+)\\^	\\^86(,)*(\\^)*([0-9,]*)(\\^)*\
+		^spe_\\1^	^\\3\\4\\5	^MOVhttp://web2.millercenter.org/speeches/video/mov/spe_\\1.mov^\
+
+\b 	non-MOV add col
+\b0 \
+		\\^spe_([0-9a-zA-Z_]+)\\^	\\^(noTypes|[0-9,]+)\\^	\\^(noWMV|WMVhttp)\
+		^spe_\\1^	^\\2^	^noMOV^	^\\3\
+
+\b 	check for empty mediaType cols
+\b0 \
+			\\^spe_([0-9a-zA-Z_]+)\\^	\\^\\^\
+			^spe_\\1^	^noTypes^\
+	
+\b RM\
+
+\b0 		\\^spe_([0-9a-zA-Z_]+)\\^	\\^87(,)*(\\^)*([0-9,]*)(\\^)*\
+		^spe_\\1^	^\\3\\4\\5	^RMhttp://web2.millercenter.org/speeches/video/rm/spe_\\1.rm^\
+
+\b 	non-RM add col
+\b0 \
+		\\^spe_([0-9a-zA-Z_]+)\\^	\\^(noTypes|[0-9,]+)\\^	\\^(noMOV|MOVhttp)\
+		^spe_\\1^	^\\2^	^noRM^	^\\3\
+
+\b 	check for empty mediaType cols
+\b0 \
+			\\^spe_([0-9a-zA-Z_]+)\\^	\\^\\^\
+			^spe_\\1^	^noTypes^\
+\
+	
+\b SM (mp4 512K)\
+
+\b0 		\\^spe_([0-9a-zA-Z_]+)\\^	\\^107(,)*(\\^)*([0-9,]*)(\\^)*\
+		^spe_\\1^	^\\3\\4\\5	^SMhttp://web2.millercenter.org/speeches/video/mp4/512K/spe_\\1.mp4^\
+
+\b 	non-SM add col
+\b0 \
+		\\^spe_([0-9a-zA-Z_]+)\\^	\\^(noTypes|[0-9,]+)\\^	\\^(noRM|RMhttp)\
+		^spe_\\1^	^\\2^	^noSM^	^\\3\
+
+\b 	check for empty mediaType cols
+\b0 \
+			\\^spe_([0-9a-zA-Z_]+)\\^	\\^\\^\
+			^spe_\\1^	^noTypes^\
+\
+	
+\b LG (mp4 1Mb)\
+
+\b0 		\\^spe_([0-9a-zA-Z_]+)\\^	\\^109(,)*(\\^)*([0-9,]*)(\\^)*\
+		^spe_\\1^	^\\3\\4\\5	^LGhttp://web2.millercenter.org/speeches/video/mp4/1Mb/spe_\\1.mp4^\
+
+\b 	non-SM add col
+\b0 \
+		\\^spe_([0-9a-zA-Z_]+)\\^	\\^(noTypes|[0-9,]+)\\^	\\^(noSM|SMhttp)\
+		^spe_\\1^	^\\2^	^noLG^	^\\3\
+
+\b 	check for empty mediaType cols
+\b0 \
+			\\^spe_([0-9a-zA-Z_]+)\\^	\\^\\^\
+			^spe_\\1^	^noTypes^\
+\
+\
+\
+\
+
+\b ***need to remove 3-letter prefix from \'93http\'94s****\
+**need to remove noLG, noMOV, etc.\
+	FIND: no(LG|SM|RM|MOV|WMV|FLV|MP3)\
+	replace with nothing\
+\
+need to: make url\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7225\tx7708\tx8312\tx8967\tx9768\tx10510\tx11204\tx11918\tx12538\tx13232\tx14028\tx14496\tx15164\tx15755\tx16285\tx16840\tx17411\tx18010\pardirnatural
+\cf2 	\\^([0-9]\{4\})\\^	\\^([0-9]\{4\})\\^	\\^([0-9\\-: ]+)\\^	\\^(Yes)*\\^	\\^(0|1)\\^	\\^([a-zA-Z\\. ]+) ([a-zA-Z\\.]+)\\^\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf2 	^\\1^	^\\2^	^\\3^	^\\4^	^\\5^	^\\6 \\7^	^\\L\\7\\E-\\2^\
+translate source (manually done for test file)
+\b0 \cf0 \ul \ulc0 \
+\
 \
 \ulnone Add field for \'93no downloads\'94, apply \'93yes\'94 to all JFK except 3 exceptions\
 \
@@ -47,7 +183,9 @@ Create media file URLs using locator and list of filetypes\
 find & replace source # (JFK Library, Miller Center, etc.)\
 \
 \
-when importing: use metadataID (confirm this isn\'92t eventID) to build URL segment (needs to start with letters, not #s\'85 figure this out.)\
+when importing: use 
+\b eventID
+\b0  \strike \strikec0 (confirm this isn\'92t metadataID)\strike0\striked0  to build URL segment (needs to start with letters, not #s\'85 figure this out.)\
 \
 \
 **need to deal with 1901 problem before importing\
@@ -68,6 +206,10 @@ add htaccess rule (like gallery rule) to silently pass through\
 find+replace URLs on new speech home page from old to new\
 \
 \
+\
+
+\b Template notes
+\b0 \
 \
 When there is no A/V: <p>This transcript contains the published text of the speech, not the actual words\
 			spoken. There may be some differences between the transcript and the audio/video\
