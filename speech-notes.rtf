@@ -1,7 +1,7 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf200
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;\red0\green68\blue254;\red0\green61\blue204;}
-\margl1440\margr1440\vieww9900\viewh12480\viewkind0
+\margl1440\margr1440\vieww12420\viewh19720\viewkind0
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 
 \f0\b\fs24 \cf0 Kennedy Speeches
@@ -14,8 +14,6 @@ Only 4 have downloadable speeches: Those 4 have MOV files\
 \b \ul All: 
 \b0 \ulnone \
 \
-\
-Need to add source to EE fields\
 \
 \strike \strikec0 Make EE descr and transcr fields plain txt\strike0\striked0 \
 \
@@ -34,20 +32,35 @@ Need to add source to EE fields\
 
 \b \ulnone Removed endTime, changed start time to 12:00\
 \
-\cf2 made test batch\
+\cf2 made test batch. Instr: \
 
-\b0 	**translate sources early, easier to get to\
+\b0 \
+
+\b \strike \strikec2 	translate source 
+\b0 \
+	\\^([0-9,]*)\\^	\\^([a-zA-Z0-9 ,]*)\\^	\\^NUMBER HERE\\^	\
+	^\\1^	^\\2^	^REPLACEMENT TEXT HERE^\strike0\striked0 \
 \
-	add restrictVideo column (Yes or blank)\
-	Mark empty media columns\
+
+\b \strike \strikec2 	add restrictVideo column (Yes or blank)
+\b0 \
+	\\^([0-9]\{4\})\\^	\\^([0-9]\{4\})\\^	\\^([0-9 \\-:]*)\\^	\
+	^\\1^	^\\2^	^\\3^	^^	\
+\
+	Found all kennedy speeches, added \'93Yes\'94 to restricted\
+	Manually removed \'93yes\'92 from 4 unrestricted Kennedy entries\
+\
+
+\b 	Mark empty media columns
+\b0 \
 		\\^spe_([0-9a-zA-Z_]+)\\^	\\^\\^	\\^\\^\
 		^spe_\\1^	^noTypes^	^noNames^
-\b \
+\b \strike0\striked0 \
 	\
 	look for audio, create new column, delete 8 from list\
 
 \b0 		\\^spe_([0-9a-zA-Z_]+)\\^	\\^8(,)*(\\^)*([0-9,]*)(\\^)*\
-		^spe_\\1^	^\\3\\4\\5	^MP3http://web2.millercenter.org/speeches/audio/spe_\\1.mp3^\
+		^spe_\\1^	^\\3\\4\\5	^MP3/speeches/audio/spe_\\1.mp3^\
 
 \b 	add col for non-8 lines
 \b0 \
@@ -63,7 +76,7 @@ Need to add source to EE fields\
 	FLV\
 
 \b0 		\\^spe_([0-9a-zA-Z_]+)\\^	\\^84(,)*(\\^)*([0-9,]*)(\\^)*\
-		^spe_\\1^	^\\3\\4\\5	^FLVhttp://web2.millercenter.org/speeches/video/flv/spe_\\1.flv^\
+		^spe_\\1^	^\\3\\4\\5	^FLV/speeches/video/flv/spe_\\1.flv^\
 
 \b 	non-FLV add col
 \b0 \
@@ -78,7 +91,7 @@ Need to add source to EE fields\
 \b WMV\
 
 \b0 		\\^spe_([0-9a-zA-Z_]+)\\^	\\^85(,)*(\\^)*([0-9,]*)(\\^)*\
-		^spe_\\1^	^\\3\\4\\5	^WMVhttp://web2.millercenter.org/speeches/video/wmv/spe_\\1.wmv^\
+		^spe_\\1^	^\\3\\4\\5	^WMV/speeches/video/wmv/spe_\\1.wmv^\
 
 \b 	non-WMV add col
 \b0 \
@@ -94,7 +107,7 @@ Need to add source to EE fields\
 \b MOV\
 
 \b0 		\\^spe_([0-9a-zA-Z_]+)\\^	\\^86(,)*(\\^)*([0-9,]*)(\\^)*\
-		^spe_\\1^	^\\3\\4\\5	^MOVhttp://web2.millercenter.org/speeches/video/mov/spe_\\1.mov^\
+		^spe_\\1^	^\\3\\4\\5	^MOV/speeches/video/mov/spe_\\1.mov^\
 
 \b 	non-MOV add col
 \b0 \
@@ -109,7 +122,7 @@ Need to add source to EE fields\
 \b RM\
 
 \b0 		\\^spe_([0-9a-zA-Z_]+)\\^	\\^87(,)*(\\^)*([0-9,]*)(\\^)*\
-		^spe_\\1^	^\\3\\4\\5	^RMhttp://web2.millercenter.org/speeches/video/rm/spe_\\1.rm^\
+		^spe_\\1^	^\\3\\4\\5	^RM/speeches/video/rm/spe_\\1.rm^\
 
 \b 	non-RM add col
 \b0 \
@@ -125,7 +138,7 @@ Need to add source to EE fields\
 \b SM (mp4 512K)\
 
 \b0 		\\^spe_([0-9a-zA-Z_]+)\\^	\\^107(,)*(\\^)*([0-9,]*)(\\^)*\
-		^spe_\\1^	^\\3\\4\\5	^SMhttp://web2.millercenter.org/speeches/video/mp4/512K/spe_\\1.mp4^\
+		^spe_\\1^	^\\3\\4\\5	^SM/speeches/video/mp4/512K/spe_\\1.mp4^\
 
 \b 	non-SM add col
 \b0 \
@@ -141,9 +154,9 @@ Need to add source to EE fields\
 \b LG (mp4 1Mb)\
 
 \b0 		\\^spe_([0-9a-zA-Z_]+)\\^	\\^109(,)*(\\^)*([0-9,]*)(\\^)*\
-		^spe_\\1^	^\\3\\4\\5	^LGhttp://web2.millercenter.org/speeches/video/mp4/1Mb/spe_\\1.mp4^\
+		^spe_\\1^	^\\3\\4\\5	^LG/speeches/video/mp4/1Mb/spe_\\1.mp4^\
 
-\b 	non-SM add col
+\b 	non-LG add col
 \b0 \
 		\\^spe_([0-9a-zA-Z_]+)\\^	\\^(noTypes|[0-9,]+)\\^	\\^(noSM|SMhttp)\
 		^spe_\\1^	^\\2^	^noLG^	^\\3\
@@ -169,20 +182,17 @@ Need to add source to EE fields\
 \cf2 	\\^([0-9]\{4\})\\^	\\^([0-9]\{4\})\\^	\\^([0-9\\-: ]+)\\^	\\^(Yes)*\\^	\\^(0|1)\\^	\\^([a-zA-Z\\. ]+) ([a-zA-Z\\.]+)\\^\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 \cf2 	^\\1^	^\\2^	^\\3^	^\\4^	^\\5^	^\\6 \\7^	^\\L\\7\\E-\\2^\
-\
-
-\b translate source (manually done for test file)
-\b0 \cf0 \ul \ulc0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf0 \ul \ulc0 \
 \
 \
 
 \b \cf3 \ulnone ***add labels as needed to top line***\
-\
+**standardize url names with president shortnames: lbjohnson, etc. (\'93buren\'94 appeared in some b/c of space in filename\'97fix this)**\
 \
 RESULTS:\
 \
-	Will be some spacing issues since white space was saved in the db - how handle this?\
-	remove http://web2.millercenter.org from media URLS 
+	Will be some spacing issues since white space was saved in the db - mostly fixed by div -> p, though?
 \b0 \cf0 \
 \
 \
@@ -191,22 +201,11 @@ RESULTS:\
 \
 Add field for \'93no downloads\'94, apply \'93yes\'94 to all JFK except 3 exceptions\
 \
-What to do with \'93hasMedia\'94 field? (very few zeroes)\
-\
-\
-Create media file URLs using locator and list of filetypes\
-	- nearly all will have mp3\
-	- about half will have some type of video\
-\
 find & replace source # (JFK Library, Miller Center, etc.)\
 \
 \
-when importing: use 
-\b eventID
-\b0  \strike \strikec0 (confirm this isn\'92t metadataID)\strike0\striked0  to build URL segment (needs to start with letters, not #s\'85 figure this out.)\
 \
-\
-**need to deal with 1901 problem before importing\
+\strike \strikec0 **need to deal with 1901 problem before importing\strike0\striked0 \
 \
 Small bug in word cloud snippet: \'93quot\'94 is not removed presumably since there\'92s no space between it and a word. So you get \'93quoteich\'94 (in eich bin ein berliner) etc. Replaced with actual quotes (not quot) and had same problem. \
 \
