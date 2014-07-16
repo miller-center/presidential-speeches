@@ -1,7 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;\red0\green68\blue254;\red0\green61\blue204;}
-\margl1440\margr1440\vieww12420\viewh19720\viewkind0
+\margl1440\margr1440\vieww12420\viewh14220\viewkind0
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 
 \f0\b\fs24 \cf0 Kennedy Speeches
@@ -29,8 +29,8 @@ Only 4 have downloadable speeches: Those 4 have MOV files\
 \
 \ulnone \strike \strikec0 Split into 1 files: pre-media and post-media? \strike0\striked0 (Upload non-media entries in bulk 1st?) \
 \ul \
-
-\b \ulnone Removed endTime, changed start time to 12:00\
+\ulnone \strike \strikec0 Removed endTime, changed start time to 12:00
+\b \strike0\striked0 \
 \
 \cf2 made test batch. Instr: \
 
@@ -177,34 +177,28 @@ Only 4 have downloadable speeches: Those 4 have MOV files\
 	replace with nothing\
 \
 
-\b Make url
-\b0 \
+\b \cf3 Make url w/ slug \'93speech-XXX\'94
+\b0 \cf2 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7225\tx7708\tx8312\tx8967\tx9768\tx10510\tx11204\tx11918\tx12538\tx13232\tx14028\tx14496\tx15164\tx15755\tx16285\tx16840\tx17411\tx18010\pardirnatural
 \cf2 	\\^([0-9]\{4\})\\^	\\^([0-9]\{4\})\\^	\\^([0-9\\-: ]+)\\^	\\^(Yes)*\\^	\\^(0|1)\\^	\\^([a-zA-Z\\. ]+) ([a-zA-Z\\.]+)\\^\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
-\cf2 	^\\1^	^\\2^	^\\3^	^\\4^	^\\5^	^\\6 \\7^	^\\L\\7\\E-\\2^\
+\cf2 	^\\1^	^\\2^	^\\3^	^\\4^	^\\5^	^\\6 \\7^	^speech-\\2^\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 \cf0 \ul \ulc0 \
 \
 \
 
 \b \cf3 \ulnone ***add labels as needed to top line***\
-**standardize url names with president shortnames: lbjohnson, etc. (\'93buren\'94 appeared in some b/c of space in filename\'97fix this)**\
+	fixed 3518: noTypes, noNames\
+	manually added noTypes, noNames to \'93 buren\'94 entries\
 \
 RESULTS:\
 \
-	Will be some spacing issues since white space was saved in the db - mostly fixed by div -> p, though?
+	Will be some spacing issues since white space was saved in the db (only for unusually spaced speeches\'85 i saw one in passing that had prices [?] set aside and centered\'85 unfortunately saw it before realized needed to fix and was lost).
 \b0 \cf0 \
 \
 \
-\
 \strike \strikec0 Went through two csv files replacing empty <div> with <p> (and closing tags the same)\'97fixes some spacing issues. \strike0\striked0 \
-\
-Add field for \'93no downloads\'94, apply \'93yes\'94 to all JFK except 3 exceptions\
-\
-find & replace source # (JFK Library, Miller Center, etc.)\
-\
-\
 \
 \strike \strikec0 **need to deal with 1901 problem before importing\strike0\striked0 \
 \
@@ -223,5 +217,5 @@ add htaccess rule (like gallery rule) to silently pass through\
 \
 find+replace URLs on new speech home page from old to new\
 \
-\
+**5538 (Carter) needs fix where \'93?f 1972\'94 exists\
 }
