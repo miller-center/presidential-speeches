@@ -167,36 +167,50 @@ Only 4 have downloadable speeches: Those 4 have MOV files\
 			\\^spe_([0-9a-zA-Z_]+)\\^	\\^\\^\
 			^spe_\\1^	^noTypes^\
 \strike0\striked0 \
-\
+\strike \strikec2 \
 
 \b ***need to remove 3-letter prefix from \'93http\'94s****\
-\
+
+\b0 	\\^([a-zA-Z0-9]+)/speeches/(video|audio)/\
+	^/speeches/\\2/\
+
+\b \
 **need to remove noLG, noMOV, etc.\
 
-\b0 	FIND: no(LG|SM|RM|MOV|WMV|FLV|MP3)\
-	replace with nothing\
+\b0 	FIND: \\^no(LG|SM|RM|MOV|WMV|FLV|MP3)\\^\
+	replace with ^^\
+\
 \
 
-\b \cf3 Make url w/ slug \'93speech-XXX\'94
-\b0 \cf2 \
+\b \cf3 \strikec3 Make url w/ slug \'93speech-XXX\'94
+\b0 \cf2 \strikec2 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\tx7225\tx7708\tx8312\tx8967\tx9768\tx10510\tx11204\tx11918\tx12538\tx13232\tx14028\tx14496\tx15164\tx15755\tx16285\tx16840\tx17411\tx18010\pardirnatural
-\cf2 	\\^([0-9]\{4\})\\^	\\^([0-9]\{4\})\\^	\\^([0-9\\-: ]+)\\^	\\^(Yes)*\\^	\\^(0|1)\\^	\\^([a-zA-Z\\. ]+) ([a-zA-Z\\.]+)\\^\
+\cf2 \strikec2 	\\^([0-9]\{4\})\\^	\\^([0-9]\{4\})\\^	\\^([0-9\\-: ]+)\\^	\\^(Yes)*\\^	\\^(0|1)\\^	\\^([a-zA-Z\\. ]+) ([a-zA-Z\\.]+)\\^\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
-\cf2 	^\\1^	^\\2^	^\\3^	^\\4^	^\\5^	^\\6 \\7^	^speech-\\2^\
+\cf2 \strikec2 	^\\1^	^\\2^	^\\3^	^\\4^	^\\5^	^\\6 \\7^	^speech-\\2^\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
-\cf0 \ul \ulc0 \
+\cf0 \ul \ulc0 \strikec0 \
 \
 \
 
-\b \cf3 \ulnone ***add labels as needed to top line***\
+\b \cf3 \ulnone \strikec3 ***add labels as needed to top line***\
 	fixed 3518: noTypes, noNames\
 	manually added noTypes, noNames to \'93 buren\'94 entries\
-\
+\strike0\striked0 \
 RESULTS:\
 \
-	Will be some spacing issues since white space was saved in the db (only for unusually spaced speeches\'85 i saw one in passing that had prices [?] set aside and centered\'85 unfortunately saw it before realized needed to fix and was lost).
-\b0 \cf0 \
+	Will be some spacing issues since white space was saved in the db (only for unusually spaced speeches\'85 i saw one in passing that had prices [?] set aside and centered\'85 unfortunately saw it before realized needed to fix and was lost).\
 \
+\strike \strikec3 \
+
+\b0 \cf0 \strikec0 Reagan is weirdly not working in the relationship field. (results are empty) Manually fix? \
+	- imported 200 entries, all are fine except Reagans\
+	- deleted Reagan entries, imported them (alone) again, similar results\
+	- when manually fixing entries, some appeared to have worked (earlier entries) and others didn\'92t\
+	- will do smaller batches in future, reagan was at end of this batch\
+	- found same case (empty fields) in 2nd import of different batch\
+	- manually fixed\
+\strike0\striked0 \
 \
 \strike \strikec0 Went through two csv files replacing empty <div> with <p> (and closing tags the same)\'97fixes some spacing issues. \strike0\striked0 \
 \
@@ -218,4 +232,10 @@ add htaccess rule (like gallery rule) to silently pass through\
 find+replace URLs on new speech home page from old to new\
 \
 **5538 (Carter) needs fix where \'93?f 1972\'94 exists\
-}
+**3812: under Muscle Shoals, \'93(lam at public\'94\
+\
+\strike \strikec0 3 are missing from new build: \
+	3677\
+	5739\
+	5933\
+	REasons unclear\'97manually built in EE. List otherwise matches exactly. }
